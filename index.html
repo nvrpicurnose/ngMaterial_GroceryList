@@ -1,0 +1,73 @@
+
+<html lang="en" >
+<head>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+</head>
+<body ng-app="Sandbox" ng-controller='MainCtrl' ng-cloak>
+  <!-- Your HTML content here -->  
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+  <!-- Bootstrap & jQuery -->
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <script src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
+  
+  <!-- js files -->
+  <script src="app.js"></script>
+
+  <md-toolbar>
+    <h1 style='text-align:center;'>{{title}}</h1>
+  </md-toolbar>
+
+  <md-input-container>
+    <input type='text' ng-model='itemToAdd.name' placeholder='Food Item' style='width:60vw;' />
+  </md-input-container>
+  <md-input-container>
+    <input type='number' ng-model='itemToAdd.price' style='width:20vw;' placeholder='Price' />
+  </md-input-container>
+  <md-button class="md-raised md-primary" ng-click='AddItem()' style='width:15vw;'>Add</md-button>
+
+  <md-content style='height:50vh;'>
+    <md-list>
+
+      <md-list-item class="md-2-line" ng-repeat="item in items track by $index" ng-click='RemoveItem(item)' style='width:100vw;'>
+
+        <md-checkbox aria-label="Checkbox 1" style='width:5vw;'>
+        </md-checkbox>
+
+        <h3 style='font-weight:bold;' flex='85'>{{item.name}}</h3>
+        <h3 layout-align='right' flex='15'>${{item.price}}</h3>
+
+      </md-list-item>
+
+    </md-list>
+  </md-content>
+
+  <md-card style='height:25vh; background-color:#6633CC;'>
+    <md-card-title>
+      <md-card-title-text>
+        <h1 style='margin-left:5vw; color:#e6e6e6;'>Total Budget: ${{budget}}</h1>
+
+        <h1 style='margin-left:5vw; color:#e6e6e6;'>Remaining: ${{remaining}}</h1>
+
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+</body>
+
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
